@@ -4,7 +4,7 @@
 <head>
 	<title>七夕言情</title>
 	<meta charset="utf-8">
-	<script type="text/javascript" src="http://img.mukewang.com/down/55ac9a860001a6c500000000.js"></script>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<style type="text/css">
 		* {
 			padding: 0;
@@ -47,6 +47,16 @@
 		li:nth-child(3) {
 			background: yellow;
 		}
+
+		button {
+			width: 100px;
+			height: 50px;
+		}
+
+		.button {
+			position: absolute;
+			bottom: 0;
+		}
 	</style>
 	
 </head>
@@ -60,6 +70,9 @@
 			<!-- 第三幅画面 -->
 			<li>页面三</li>
 		</ul>
+		<div class="button">
+			<button>点击切换页面</button>
+		</div>
 	</div>
 	<script type="text/javascript">
 		var container = $("#content");
@@ -83,10 +96,16 @@
 				width: width + 'px',
 				height: height + 'px'
 			});
-			// slide.css({
-			// 	width: width + 'px',
-			// 	height: height + 'px'
-			// });
+		});
+
+		// 绑定一个事件，触发Transform
+		$('button').click(function() {
+			// 在5秒的时间内，移动X的位置，为2个页面单位
+			element.css({
+				'transition-timing-function': 'linear',
+				'transition-duration': '5000ms',
+				'transform': 'translate3d(-'+(width*2)+'px, 0px, 0px)'
+			});
 		});
 	</script>
 </body>
