@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- http://www.imooc.com/code/8898 -->
+<!-- http://www.imooc.com/code/8899 -->
 <html>
 <head>
 	<title>七夕言情</title>
@@ -18,8 +18,60 @@
 		/* 设置一个元素的坐标 */
 		left: 6%;
 		top: 55%;
+	} 
+	.slowWalk {
+		/* 填入动画样式规则 */
+		/* 规定 @keyframes 动画的名称 */
+		-webkit-animation-name: person-slow;
+		/* 规定动画完成一个周期所花费的秒或者毫秒。默认是0 */
+		-webkit-animation-duration: 950ms;
+		/* 动画切换的方式是一帧一帧的改变 */
+		-webkit-animation-timing-function: steps(1, start);
+		-moz-animation-name: person-slow;
+		-moz-animation-duration: 950ms;
+		-moz-animation-iteration-count: infinite;
+		-moz-animation-timing-function: steps(1, start);
+	}
+
+	/* 普通慢走 */
+
+	@-webkit-keyframes person-slow {
+		0% {
+			background-position: -0px -291px;
+		}
+		25% {
+			background-position: -602px -0px;
+		}
+		50% {
+			background-position: -302px -291px;
+		}
+		75% {
+			background-position: -151px -291px;
+		}
+		100% {
+			background-position: -0px -291px;
+		}
+	}
+
+	@-moz-keyframes person-slow {
+		0% {
+			background-position: -0px -291px;
+		}
+		25% {
+			background-position: -602px -0px;
+		}
+		50% {
+			background-position: -302px -291px;
+		}
+		75% {
+			background-position: -151px -291px;
+		}
+		100% {
+			background-position: -0px -291px;
+		}
 	}
 </style>
+
 <body>
 	<div id="content">
 		<ul class="content-wrap">
@@ -36,21 +88,20 @@
 			<!-- 第三幅画面 -->
 			<li>页面三</li>
 		</ul>
-		<!-- 
-		<div class="button">
-			<button>点击切换页面</button>
-		</div>
-		 -->
+
 		<div id="boy" class="character"></div>
+		<div class="button">
+			<button>点击开始动画</button>
+		</div>
 	</div>
 	<script type="text/javascript">
 		var swipe = Swipe($("#content"));
 
-		// 绑定一个事件
-		$('button').click(function() {
-			// 调用接口
-			swipe.scrollTo($("#content").width()*2, 5000);
-		});
+		// // 绑定一个事件
+		// $('button').click(function() {
+		// 	// 调用接口
+		// 	swipe.scrollTo($("#content").width()*2, 5000);
+		// });
 
 		// 获取数据
 		var getValue = function(className) {
@@ -75,6 +126,12 @@
 		// 路得中间位置减去小孩的高度，25是一个修正值
 		$boy.css({
 			top: pathY - boyHeight + 25
+		});
+
+		// 增加精灵动画
+		$('button').click(function() {
+			// 增加走路的CSS3关键帧规则
+			$boy.addClass('slowWalk');
 		});
 	</script>
 </body>
