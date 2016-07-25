@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- http://www.imooc.com/code/8899 -->
+<!-- http://www.imooc.com/code/8901 -->
 <html>
 <head>
 	<title>七夕言情</title>
@@ -7,69 +7,11 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/pageA.css">
 	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://img.mukewang.com/down/55ac9ea30001ace700000000.js"></script>
 	<script type="text/javascript" src="Swipe.js"></script>
 </head>
 <style type="text/css">
-	.character {
-		width: 151px;
-		height: 291px;
-		background: url("http://img.mukewang.com/55ade248000198ae10550582.png") -0px -291px no-repeat;
-		position: absolute;
-		/* 设置一个元素的坐标 */
-		left: 6%;
-		top: 55%;
-	} 
-	.slowWalk {
-		/* 填入动画样式规则 */
-		/* 规定 @keyframes 动画的名称 */
-		-webkit-animation-name: person-slow;
-		/* 规定动画完成一个周期所花费的秒或者毫秒。默认是0 */
-		-webkit-animation-duration: 950ms;
-		/* 动画切换的方式是一帧一帧的改变 */
-		-webkit-animation-timing-function: steps(1, start);
-		-moz-animation-name: person-slow;
-		-moz-animation-duration: 950ms;
-		-moz-animation-iteration-count: infinite;
-		-moz-animation-timing-function: steps(1, start);
-	}
-
-	/* 普通慢走 */
-
-	@-webkit-keyframes person-slow {
-		0% {
-			background-position: -0px -291px;
-		}
-		25% {
-			background-position: -602px -0px;
-		}
-		50% {
-			background-position: -302px -291px;
-		}
-		75% {
-			background-position: -151px -291px;
-		}
-		100% {
-			background-position: -0px -291px;
-		}
-	}
-
-	@-moz-keyframes person-slow {
-		0% {
-			background-position: -0px -291px;
-		}
-		25% {
-			background-position: -602px -0px;
-		}
-		50% {
-			background-position: -302px -291px;
-		}
-		75% {
-			background-position: -151px -291px;
-		}
-		100% {
-			background-position: -0px -291px;
-		}
-	}
+	
 </style>
 
 <body>
@@ -89,7 +31,7 @@
 			<li>页面三</li>
 		</ul>
 
-		<div id="boy" class="character"></div>
+		<div id="boy" class="character slowWalk"></div>
 		<div class="button">
 			<button>点击开始动画</button>
 		</div>
@@ -130,8 +72,12 @@
 
 		// 增加精灵动画
 		$('button').click(function() {
-			// 增加走路的CSS3关键帧规则
-			$boy.addClass('slowWalk');
+			// // 增加走路的CSS3关键帧规则
+			// $boy.addClass('slowWalk');
+			// left的变化
+			$boy.transition({
+				'left': $('#content').width() + 'px',
+			}, 10000, 'linear', function() {});
 		});
 	</script>
 </body>
