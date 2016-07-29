@@ -4,14 +4,15 @@
 <head>
 	<title>七夕言情</title>
 	<meta charset="utf-8">
-	<!-- <link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/pageA.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/pageA.css">
 	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://img.mukewang.com/down/55ac9ea30001ace700000000.js"></script>
-	<!-- <script type="text/javascript" src="Swipe.js"></script> -->
+	<script type="text/javascript" src="Swipe.js"></script>
+	<script type="text/javascript" src="BoyWalk.js"></script>
 </head>
 <style type="text/css">
-	div {
+	/*div {
 		background-color: yellow;\
 		width: 200px;
 		height: 200px;
@@ -25,11 +26,11 @@
 	}
 	button {
 		font-size: 14px;
-	}
+	}*/
 </style>
 
 <body>
-<!-- 
+
 	<div id="content">
 		<ul class="content-wrap">
 			
@@ -51,7 +52,26 @@
 			<button>开始</button>
 		</div>
 	</div>
-	 -->
+	<script type="text/javascript">
+		$(function() {
+			var container = $("#content");
+			var swipe = Swipe(content);
+
+			// 小男孩走路
+			var boy = BoyWalk();
+			
+			// 开始
+			$("button:first").click(function() {
+				// 
+				boy.walkTo(2000, 0.2)
+				.then(function() {
+					// 第一次走路完成
+					boy.setColoer('red')
+				})
+			});
+		});
+	</script>
+	<!-- 
 	 <button>点击测试回调处理</button>
 	 <button>点击测试$.Deferred处理</button>
 	 <br />
@@ -106,7 +126,7 @@
 	 			$("#block4").text('block4动画动画直接结束');
 	 		});
 	 	});
-	 </script>
+	 </script> -->
 <!-- 
 	<script type="text/javascript">
 		var swipe = Swipe($("#content"));
@@ -207,7 +227,7 @@
 	</script>
 	 -->
 </body>
-
+<!-- 
 <script type="text/javascript">
 
 $(function() {
@@ -221,7 +241,7 @@ $(function() {
 })
 
 </script>
-
+ -->
 <script type="text/javascript" src="Swipe.js"></script>
 <script type="text/javascript" src="Qixi.js"></script>
 
