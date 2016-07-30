@@ -55,7 +55,7 @@
 	<script type="text/javascript">
 		$(function() {
 			var container = $("#content");
-			var swipe = Swipe(content);
+			var swipe = Swipe(container);
 
 			// 小男孩走路
 			var boy = BoyWalk();
@@ -64,10 +64,30 @@
 			$("button:first").click(function() {
 				// 
 				boy.walkTo(2000, 0.2)
-				.then(function() {
-					// 第一次走路完成
-					boy.setColoer('red')
-				})
+					.then(function() {
+						// 第一次走路完成
+						boy.setColor('red')
+					})
+					.then(function() {
+						// 第二次走路
+						return boy.walkTo(2000, 0.4)
+					})
+					.then(function() {
+						// 第二次走路完成
+						boy.setColor('yellow')
+					})
+					.then(function() {
+						// 第三次走路
+						return boy.walkTo(2000, 0.6)
+					})
+					.then(function() {
+						// 第三次走路完成
+						boy.setColor('blue')
+					})
+					.then(function() {
+						// 第四次走路
+						return boy.walkTo(2000, 0.8)
+					})
 			});
 		})
 	</script>

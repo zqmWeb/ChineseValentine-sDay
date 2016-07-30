@@ -98,7 +98,7 @@ function BoyWalk() {
 			pauseWalk();
 		},
 
-		setColoer: function(value) {
+		setColor: function(value) {
 			$boy.css('background-color', value)
 		}
 	}
