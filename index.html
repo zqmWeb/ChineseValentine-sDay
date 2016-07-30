@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- http://www.imooc.com/code/8908 -->
+<!-- http://www.imooc.com/code/8920 -->
 <html>
 <head>
 	<title>七夕言情</title>
@@ -57,38 +57,28 @@
 			var container = $("#content");
 			var swipe = Swipe(container);
 
+			// 页面滚动到指定的位置
+			function scrollTo(time, proportionX) {
+				var distX = container.width() * proportionX;
+				swipe.scrollTo(distX, time);
+			}
+
 			// 小男孩走路
 			var boy = BoyWalk();
 			
 			// 开始
 			$("button:first").click(function() {
-				// 
+				// 开始第一次走路
 				boy.walkTo(2000, 0.2)
 					.then(function() {
 						// 第一次走路完成
-						boy.setColor('red')
+						scrollTo(5000, 1);
 					})
 					.then(function() {
 						// 第二次走路
-						return boy.walkTo(2000, 0.4)
-					})
-					.then(function() {
-						// 第二次走路完成
-						boy.setColor('yellow')
-					})
-					.then(function() {
-						// 第三次走路
-						return boy.walkTo(2000, 0.6)
-					})
-					.then(function() {
-						// 第三次走路完成
-						boy.setColor('blue')
-					})
-					.then(function() {
-						// 第四次走路
-						return boy.walkTo(2000, 0.8)
-					})
-			});
+						return boy.walkTo(5000, 0.5);
+					});
+			})
 		})
 	</script>
 	<!-- 

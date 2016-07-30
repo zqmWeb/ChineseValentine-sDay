@@ -33,8 +33,9 @@ function Swipe(container) {
 		element.css({
 			'transition-timing-function': 'linear',
 			'transition-duration': speed + 'ms',
-			'transform': 'translate3d(-' + x + 'px, 0px, 0px'
+			'transform': 'translate3d(-' + x + 'px, 0px, 0px)'
 		});
+
 		return this;
 	}
 
