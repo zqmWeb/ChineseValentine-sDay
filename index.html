@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- http://www.imooc.com/code/8920 -->
+<!-- http://www.imooc.com/code/8921 -->
 <html>
 <head>
 	<title>七夕言情</title>
@@ -27,6 +27,43 @@
 	button {
 		font-size: 14px;
 	}*/
+	#sun {
+		background: url("http://img.mukewang.com/55ade004000106c202010201.png") no-repeat;
+		position:  absolute;
+		z-index: 1;
+		top: -30px;
+		height: 201px;
+		width: 201px;
+		right: 40%;
+	}
+
+	.rotation {
+		-webkit-animation-name: rotation;
+		-webkit-animation-duration: 30s;
+		-moz-animation-name: rotation;
+		-moz-animation-duration: 30s;
+	}
+
+	@-webkit-keyframes rotation {
+		0% {
+			transform: translateX(0) translateY(0);
+		}
+		100% {
+			transform: translateX(-2000px) translateY(400px);
+		}
+	}
+
+	@-moz-keyframes rotation {
+		0% {
+			transform: translateX(0) translateY(0);
+		}
+		100% {
+			transform: translateX(-2000px) translateY(400px);
+		}
+	}
+
+
+
 </style>
 
 <body>
@@ -40,6 +77,8 @@
 					<div class="a_background_middle"></div>
 					<div class="a_background_bottom"></div>
 				</div>
+				<!-- 太阳 -->
+				<div id="sun"></div>
 			</li>
 			
 			<li>页面二</li>
@@ -68,6 +107,10 @@
 			
 			// 开始
 			$("button:first").click(function() {
+
+				// 太阳公转
+				$("#sun").addClass('rotation');
+
 				// 开始第一次走路
 				boy.walkTo(2000, 0.2)
 					.then(function() {
